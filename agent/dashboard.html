@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="agentName">Samiya Sultana</p>
+            <span>Sales Agent</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="inquiries.html">Inquiries</a>
+          <a href="visits.html">Site Visits</a>
+          <a href="bookings.html">Booking Requests</a>
+          <a href="customers.html">My Customers</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Welcome, <span id="welcomeName">Samiya Sultana</span></h1>
+            <p class="subtitle">Handle inquiries, site visits and booking requests assigned to you.</p>
+          </div>
+          <a href="inquiries.html" class="btn-primary">Reply to Inquiries</a>
+        </header>
+        <section class="stats-grid">
+          <div class="card stat-card"><span class="stat-label">New Inquiries</span><strong class="stat-value" id="statNewInquiries">0</strong></div>
+          <div class="card stat-card"><span class="stat-label">Pending Site Visits</span><strong class="stat-value" id="statPendingVisits">0</strong></div>
+          <div class="card stat-card"><span class="stat-label">Pending Bookings</span><strong class="stat-value" id="statPendingBookings">0</strong></div>
+          <div class="card stat-card"><span class="stat-label">Assigned Customers</span><strong class="stat-value" id="statCustomers">0</strong></div>
+        </section>
+        <section class="two-col-grid">
+          <section class="card">
+          <div class="card-head"><h3>Upcoming Site Visits</h3><a href="visits.html" class="text-link">View All</a></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Customer</th><th>Flat</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
+              <tbody id="upcomingVisitsBody"></tbody>
+            </table>
+          </div>
+        </section>
+          <div class="card overview-card">
+            <div class="card-head"><h3>Flat Availability</h3></div>
+            <div class="donut-chart" id="flatChart"></div>
+            <div class="legend-list">
+              <span><i class="dot dot-paid"></i>Available: <strong id="availCount">0</strong></span>
+              <span><i class="dot dot-due"></i>Booked: <strong id="bookedCount">0</strong></span>
+              <span><i class="dot dot-overdue"></i>Sold: <strong id="soldCount">0</strong></span>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-head"><h3>New Inquiries Awaiting Reply</h3><a href="inquiries.html" class="text-link">Manage Inquiries</a></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Customer</th><th>Flat</th><th>Message</th><th>Date</th><th>Action</th></tr></thead>
+              <tbody id="newInquiriesBody"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-head"><h3>Booking Requests To Review</h3><a href="bookings.html" class="text-link">Review All</a></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Customer</th><th>Flat</th><th>Price</th><th>Requested On</th><th>Action</th></tr></thead>
+              <tbody id="pendingBookingsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
