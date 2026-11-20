@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Installments</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="installments">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="officerName">Al Rahit</p>
+            <span>Accounts Officer</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="payments.html">Payments</a>
+          <a href="installments.html" class="active">Installments</a>
+          <a href="receipts.html">Receipts</a>
+          <a href="reports.html">Financial Reports</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Installments</h1>
+            <p class="subtitle">Monitor installment due dates, overdue accounts, and customer reminders.</p>
+          </div>
+          <button type="button" id="remindAllBtn" class="btn-primary">Remind All Overdue</button>
+        </header>
+
+        <section class="card">
+          <div class="toolbar">
+            <select id="statusFilter">
+              <option value="All">All Statuses</option>
+              <option value="Due">Due</option>
+              <option value="Overdue">Overdue</option>
+              <option value="Paid">Paid</option>
+            </select>
+            <input
+              type="text"
+              id="installmentSearch"
+              placeholder="Search customer, project, or flat"
+            />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Flat</th>
+                  <th>Installment</th>
+                  <th>Due Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Reminders</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="installmentTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="reminderModal" class="modal-backdrop">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h3 id="modalTitle">Send Payment Reminder</h3>
+          <button type="button" id="closeModalBtn" class="modal-close">&times;</button>
+        </div>
+        <p id="modalSubtitle" class="modal-subtitle"></p>
+        <div class="field" id="modalMessageGroup">
+          <label for="reminderMessage">Reminder Message</label>
+          <textarea id="reminderMessage" rows="4"></textarea>
+          <span class="field-error" id="reminderError"></span>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancelReminderBtn" class="btn-secondary">Cancel</button>
+          <button type="button" id="sendReminderBtn" class="btn-primary">Send Reminder</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="officerName">Al Rahit</p>
+            <span>Accounts Officer</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="payments.html">Payments</a>
+          <a href="installments.html">Installments</a>
+          <a href="receipts.html">Receipts</a>
+          <a href="reports.html">Financial Reports</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Welcome, <span id="welcomeName">Al Rahit</span></h1>
+            <p class="subtitle">Track flat payments, installment schedules, and customer receipts.</p>
+          </div>
+          <a href="payments.html" class="btn-primary">Record Payment</a>
+        </header>
+
+        <section class="stats-grid">
+          <div class="card stat-card">
+            <span class="stat-label">Total Collections</span>
+            <strong class="stat-value" id="statCollected">&#2547; 0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Pending Amount</span>
+            <strong class="stat-value" id="statPending">&#2547; 0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Overdue Installments</span>
+            <strong class="stat-value" id="statOverdueCount">0</strong>
+            <span class="stat-sub" id="statOverdueAmount">&#2547; 0</span>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Total Bookings</span>
+            <strong class="stat-value" id="statBookings">0</strong>
+          </div>
+        </section>
+
+        <section class="two-col-grid">
+          <div class="card">
+            <div class="card-head">
+              <h3>Recent Payments</h3>
+              <a href="payments.html" class="text-link">View All</a>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Booking</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="recentPaymentsBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card overview-card">
+            <div class="card-head">
+              <h3>Installment Overview</h3>
+            </div>
+            <div class="donut-chart" id="installmentChart"></div>
+            <div class="legend-list">
+              <span><i class="dot dot-paid"></i>Paid: <strong id="paidCount">0</strong></span>
+              <span><i class="dot dot-due"></i>Due: <strong id="dueCount">0</strong></span>
+              <span><i class="dot dot-overdue"></i>Overdue: <strong id="overdueCount">0</strong></span>
+            </div>
+            <a href="installments.html" class="btn-secondary btn-full">View All Installments</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Overdue Installments</h3>
+            <a href="installments.html?status=Overdue" class="text-link">Manage Overdue</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Flat</th>
+                  <th>Installment</th>
+                  <th>Days Late</th>
+                  <th>Amount</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="overdueTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Awaiting Booking Money</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Booking</th>
+                  <th>Flat</th>
+                  <th>Amount</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="awaitingTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

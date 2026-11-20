@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Financial Reports</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="reports">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="officerName">Al Rahit</p>
+            <span>Accounts Officer</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="payments.html">Payments</a>
+          <a href="installments.html">Installments</a>
+          <a href="receipts.html">Receipts</a>
+          <a href="reports.html" class="active">Financial Reports</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Financial Reports</h1>
+            <p class="subtitle">Review monthly collections, project performance, and outstanding balances.</p>
+          </div>
+        </header>
+
+        <section class="card no-print">
+          <div class="toolbar report-toolbar">
+            <div class="inline-field">
+              <label for="reportFrom">From</label>
+              <input type="date" id="reportFrom" />
+            </div>
+            <div class="inline-field">
+              <label for="reportTo">To</label>
+              <input type="date" id="reportTo" />
+            </div>
+            <button type="button" id="applyReportBtn" class="btn-primary">Apply</button>
+            <button type="button" id="printReportBtn" class="btn-secondary">Print</button>
+            <button type="button" id="exportCsvBtn" class="btn-secondary">Export CSV</button>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <div class="card stat-card">
+            <span class="stat-label">Collected in Range</span>
+            <strong class="stat-value" id="repCollected">&#2547; 0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Payments Count</span>
+            <strong class="stat-value" id="repPaymentsCount">0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Outstanding Balance</span>
+            <strong class="stat-value" id="repOutstanding">&#2547; 0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Overdue Amount</span>
+            <strong class="stat-value" id="repOverdue">&#2547; 0</strong>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Monthly Collection</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Payments</th>
+                  <th>Booking Money</th>
+                  <th>Installments</th>
+                  <th>Total</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody id="monthlyReportBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Project-wise Collection</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>Bookings</th>
+                  <th>Sales Value</th>
+                  <th>Collected (Range)</th>
+                  <th>Collected (Total)</th>
+                  <th>Outstanding</th>
+                  <th>Collected %</th>
+                </tr>
+              </thead>
+              <tbody id="projectReportBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Outstanding Balance by Booking</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Booking</th>
+                  <th>Customer</th>
+                  <th>Flat</th>
+                  <th>Price</th>
+                  <th>Paid</th>
+                  <th>Outstanding</th>
+                  <th>Overdue</th>
+                  <th>Next Due</th>
+                </tr>
+              </thead>
+              <tbody id="bookingReportBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

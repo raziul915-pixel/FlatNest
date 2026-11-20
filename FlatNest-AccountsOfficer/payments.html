@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Payments</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="payments">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="officerName">Al Rahit</p>
+            <span>Accounts Officer</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="payments.html" class="active">Payments</a>
+          <a href="installments.html">Installments</a>
+          <a href="receipts.html">Receipts</a>
+          <a href="reports.html">Financial Reports</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Payments</h1>
+            <p class="subtitle">Record booking money or monthly installments and review payment history.</p>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Record Payment</h3>
+          </div>
+          <form id="paymentForm" class="form-grid" novalidate>
+            <div class="field">
+              <label for="bookingSelect">Booking</label>
+              <select id="bookingSelect" name="booking"></select>
+            </div>
+            <div class="field">
+              <label for="itemSelect">Paying For</label>
+              <select id="itemSelect" name="item"></select>
+              <span class="field-error" id="itemError"></span>
+            </div>
+            <div class="field">
+              <label for="amountInput">Amount (BDT)</label>
+              <input type="text" id="amountInput" name="amount" readonly />
+            </div>
+            <div class="field">
+              <label for="paymentDateInput">Payment Date</label>
+              <input type="date" id="paymentDateInput" name="paymentDate" />
+              <span class="field-error" id="dateError"></span>
+            </div>
+            <div class="field">
+              <label for="methodSelect">Payment Method</label>
+              <select id="methodSelect" name="method">
+                <option value="">Select method</option>
+                <option value="Cash">Cash</option>
+                <option value="bKash">bKash</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+                <option value="Nagad">Nagad</option>
+                <option value="Cheque">Cheque</option>
+                <option value="Card">Card</option>
+              </select>
+              <span class="field-error" id="methodError"></span>
+            </div>
+            <div class="field">
+              <label for="referenceInput">Reference / TXN No.</label>
+              <input
+                type="text"
+                id="referenceInput"
+                name="reference"
+                maxlength="30"
+                placeholder="Required for non-cash payments"
+              />
+              <span class="field-error" id="referenceError"></span>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Record Payment</button>
+              <span id="paymentSuccessLink" class="success-inline"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Payment History</h3>
+          </div>
+          <div class="toolbar">
+            <input
+              type="text"
+              id="paymentSearch"
+              placeholder="Search by customer or receipt no."
+            />
+            <select id="paymentTypeFilter">
+              <option value="">All types</option>
+              <option value="Booking Money">Booking Money</option>
+              <option value="Installment">Installment</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Receipt</th>
+                  <th>Date</th>
+                  <th>Customer</th>
+                  <th>Booking</th>
+                  <th>Type</th>
+                  <th>Method</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="paymentHistoryBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
