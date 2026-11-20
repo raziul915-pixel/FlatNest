@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Receipts</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="receipts">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="officerName">Al Rahit</p>
+            <span>Accounts Officer</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="payments.html">Payments</a>
+          <a href="installments.html">Installments</a>
+          <a href="receipts.html" class="active">Receipts</a>
+          <a href="reports.html">Financial Reports</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header no-print">
+          <div>
+            <h1>Receipts</h1>
+            <p class="subtitle">Search verified payment records and print official customer receipts.</p>
+          </div>
+        </header>
+
+        <section class="card no-print">
+          <div class="toolbar">
+            <input
+              type="text"
+              id="receiptSearch"
+              placeholder="Search receipt no. or customer name"
+            />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Receipt No.</th>
+                  <th>Date</th>
+                  <th>Customer</th>
+                  <th>Amount</th>
+                  <th>Method</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="receiptListBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="receiptCard" class="card receipt-card hidden">
+          <div class="receipt-header">
+            <div class="receipt-brand">
+              <img src="FlatNest.jpg" alt="FlatNest Logo" class="receipt-logo" />
+              <div>
+                <h2>FlatNest Real Estate</h2>
+                <p>Official Payment Receipt</p>
+              </div>
+            </div>
+            <div class="receipt-meta">
+              <p>Receipt No: <strong id="rcpNumber"></strong></p>
+              <p>Date: <span id="rcpDate"></span></p>
+            </div>
+          </div>
+
+          <div class="receipt-customer">
+            <p>Received From: <strong id="rcpCustomer"></strong></p>
+            <p id="rcpBookingDetails"></p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Payment For</th>
+                  <th>Method</th>
+                  <th>Reference</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="rcpTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="receipt-summary">
+            <div><span>Flat Price</span><strong id="rcpFlatPrice"></strong></div>
+            <div><span>Paid to Date</span><strong id="rcpPaidToDate"></strong></div>
+            <div><span>Remaining Balance</span><strong id="rcpBalance"></strong></div>
+          </div>
+
+          <div class="receipt-footer">
+            <p>Received By: <strong id="rcpOfficer"></strong> (Accounts Officer)</p>
+            <button type="button" id="printReceiptBtn" class="btn-primary no-print">
+              Print Receipt
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
