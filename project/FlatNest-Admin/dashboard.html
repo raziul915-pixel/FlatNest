@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Admin Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="adminName">Khandakar Raziul</p>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="projects.html">Projects</a>
+          <a href="flats.html">Flats</a>
+          <a href="users.html">Users &amp; Staff</a>
+          <a href="leads.html">Leads</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="reports.html">Sales Analytics</a>
+          <a href="content.html">Website Content</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Welcome, <span id="welcomeName">Khandakar Raziul</span></h1>
+            <p class="subtitle">Manage projects, flats, staff roles, leads, bookings, and website content.</p>
+          </div>
+          <a href="flats.html" class="btn-primary">Add New Flat</a>
+        </header>
+
+        <section class="stats-grid">
+          <div class="card stat-card">
+            <span class="stat-label">Total Projects</span>
+            <strong class="stat-value" id="statProjects">0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Total Flats</span>
+            <strong class="stat-value" id="statFlats">0</strong>
+            <span class="stat-sub" id="statAvailableSub">0 Available</span>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Total Bookings</span>
+            <strong class="stat-value" id="statBookings">0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Total Users</span>
+            <strong class="stat-value" id="statUsers">0</strong>
+          </div>
+        </section>
+
+        <section class="two-col-grid">
+          <div class="card">
+            <div class="card-head">
+              <h3>Latest Bookings</h3>
+              <a href="bookings.html" class="text-link">View All</a>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Flat</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="latestBookingsBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card overview-card">
+            <div class="card-head">
+              <h3>Flat Inventory Summary</h3>
+            </div>
+            <div class="donut-chart" id="flatChart"></div>
+            <div class="legend-list">
+              <span><i class="dot dot-paid"></i>Available: <strong id="availCount">0</strong></span>
+              <span><i class="dot dot-due"></i>Booked: <strong id="bookedCount">0</strong></span>
+              <span><i class="dot dot-overdue"></i>Sold: <strong id="soldCount">0</strong></span>
+            </div>
+            <a href="flats.html" class="btn-secondary btn-full">Manage Flats</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Unassigned Customer Leads</h3>
+            <a href="leads.html" class="text-link">Assign Leads</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Inquiry ID</th>
+                  <th>Customer</th>
+                  <th>Flat</th>
+                  <th>Message</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="unassignedLeadsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Project Overview</h3>
+            <a href="projects.html" class="text-link">Manage Projects</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Project ID</th>
+                  <th>Project Name</th>
+                  <th>Location</th>
+                  <th>Total Flats</th>
+                  <th>Available</th>
+                </tr>
+              </thead>
+              <tbody id="projectSummaryBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

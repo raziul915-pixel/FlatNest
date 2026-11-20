@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Bookings</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="bookings">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="adminName">Khandakar Raziul</p>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="projects.html">Projects</a>
+          <a href="flats.html">Flats</a>
+          <a href="users.html">Users &amp; Staff</a>
+          <a href="leads.html">Leads</a>
+          <a href="bookings.html" class="active">Bookings</a>
+          <a href="reports.html">Sales Analytics</a>
+          <a href="content.html">Website Content</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Bookings</h1>
+            <p class="subtitle">Review all flat bookings, sales agent assignments, and booking statuses.</p>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="toolbar">
+            <select id="bookingStatusFilter">
+              <option value="All">All Statuses</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Pending">Pending</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+            <input type="text" id="bookingSearch" placeholder="Search booking ID, customer, or flat" />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Customer</th>
+                  <th>Project &amp; Flat</th>
+                  <th>Sales Agent</th>
+                  <th>Booking Date</th>
+                  <th>Booking Money</th>
+                  <th>Total Price</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bookingTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

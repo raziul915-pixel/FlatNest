@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Flats</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="flats">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="adminName">Khandakar Raziul</p>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="projects.html">Projects</a>
+          <a href="flats.html" class="active">Flats</a>
+          <a href="users.html">Users &amp; Staff</a>
+          <a href="leads.html">Leads</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="reports.html">Sales Analytics</a>
+          <a href="content.html">Website Content</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Flats</h1>
+            <p class="subtitle">Manage flat inventory, pricing, floor details, floor plans, and images.</p>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-head">
+            <h3 id="flatFormTitle">Add New Flat</h3>
+          </div>
+          <form id="flatForm" class="form-grid" novalidate>
+            <input type="hidden" id="editFlatId" />
+            <div class="field">
+              <label for="flatProjectSelect">Project</label>
+              <select id="flatProjectSelect"></select>
+              <span class="field-error" id="flatProjectError"></span>
+            </div>
+            <div class="field">
+              <label for="flatNumberInput">Flat Number</label>
+              <input type="text" id="flatNumberInput" placeholder="e.g. A-501" />
+              <span class="field-error" id="flatNumberError"></span>
+            </div>
+            <div class="field">
+              <label for="flatFloorInput">Floor</label>
+              <input type="number" id="flatFloorInput" min="1" max="50" placeholder="e.g. 5" />
+              <span class="field-error" id="flatFloorError"></span>
+            </div>
+            <div class="field">
+              <label for="flatSizeInput">Size (sqft)</label>
+              <input type="number" id="flatSizeInput" min="300" placeholder="e.g. 1450" />
+              <span class="field-error" id="flatSizeError"></span>
+            </div>
+            <div class="field">
+              <label for="flatBedroomsInput">Bedrooms</label>
+              <input type="number" id="flatBedroomsInput" min="1" max="10" placeholder="e.g. 3" />
+              <span class="field-error" id="flatBedroomsError"></span>
+            </div>
+            <div class="field">
+              <label for="flatPriceInput">Price (BDT)</label>
+              <input type="number" id="flatPriceInput" min="100000" placeholder="e.g. 6500000" />
+              <span class="field-error" id="flatPriceError"></span>
+            </div>
+            <div class="field">
+              <label for="flatStatusSelect">Availability Status</label>
+              <select id="flatStatusSelect">
+                <option value="Available">Available</option>
+                <option value="Booked">Booked</option>
+                <option value="Sold">Sold</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="flatFloorPlanInput">Floor Plan File / Ref</label>
+              <input type="text" id="flatFloorPlanInput" placeholder="e.g. plan-a501.png" />
+            </div>
+            <div class="field">
+              <label for="flatImageInput">Flat Image File / Ref</label>
+              <input type="text" id="flatImageInput" placeholder="e.g. flat-a501.jpg" />
+            </div>
+            <div class="form-actions">
+              <button type="submit" id="saveFlatBtn" class="btn-primary">Add Flat</button>
+              <button type="button" id="cancelFlatEditBtn" class="btn-secondary hidden">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Flat Listings</h3>
+          </div>
+          <div class="toolbar">
+            <select id="flatProjectFilter">
+              <option value="All">All Projects</option>
+            </select>
+            <select id="flatStatusFilter">
+              <option value="All">All Statuses</option>
+              <option value="Available">Available</option>
+              <option value="Booked">Booked</option>
+              <option value="Sold">Sold</option>
+            </select>
+            <input type="text" id="flatSearch" placeholder="Search flat number or project" />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Project</th>
+                  <th>Flat</th>
+                  <th>Floor</th>
+                  <th>Size</th>
+                  <th>Beds</th>
+                  <th>Price</th>
+                  <th>Media</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="flatTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

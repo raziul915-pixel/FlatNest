@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Projects</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="projects">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="adminName">Khandakar Raziul</p>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="flats.html">Flats</a>
+          <a href="users.html">Users &amp; Staff</a>
+          <a href="leads.html">Leads</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="reports.html">Sales Analytics</a>
+          <a href="content.html">Website Content</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Projects</h1>
+            <p class="subtitle">Add, update, and remove residential real estate projects.</p>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-head">
+            <h3 id="projectFormTitle">Add New Project</h3>
+          </div>
+          <form id="projectForm" class="form-grid" novalidate>
+            <input type="hidden" id="editProjectId" />
+            <div class="field">
+              <label for="projectNameInput">Project Name</label>
+              <input type="text" id="projectNameInput" placeholder="e.g. Royal Oasis" />
+              <span class="field-error" id="projectNameError"></span>
+            </div>
+            <div class="field">
+              <label for="projectLocationInput">Location</label>
+              <input type="text" id="projectLocationInput" placeholder="e.g. Gulshan, Dhaka" />
+              <span class="field-error" id="projectLocationError"></span>
+            </div>
+            <div class="field">
+              <label for="projectStatusSelect">Status</label>
+              <select id="projectStatusSelect">
+                <option value="Ongoing">Ongoing</option>
+                <option value="Ready">Ready</option>
+                <option value="Upcoming">Upcoming</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="projectDescInput">Description</label>
+              <input type="text" id="projectDescInput" placeholder="Brief project highlights" />
+              <span class="field-error" id="projectDescError"></span>
+            </div>
+            <div class="form-actions">
+              <button type="submit" id="saveProjectBtn" class="btn-primary">Add Project</button>
+              <button type="button" id="cancelProjectEditBtn" class="btn-secondary hidden">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>All Projects</h3>
+          </div>
+          <div class="toolbar">
+            <input type="text" id="projectSearch" placeholder="Search by project name or location" />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Project Name</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Flats</th>
+                  <th>Description</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="projectTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

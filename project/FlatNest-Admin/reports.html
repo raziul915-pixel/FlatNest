@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Sales Analytics</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="reports">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="adminName">Khandakar Raziul</p>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="projects.html">Projects</a>
+          <a href="flats.html">Flats</a>
+          <a href="users.html">Users &amp; Staff</a>
+          <a href="leads.html">Leads</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="reports.html" class="active">Sales Analytics</a>
+          <a href="content.html">Website Content</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Sales Analytics</h1>
+            <p class="subtitle">Analyze flats sold, total sales revenue, and monthly sales trends.</p>
+          </div>
+        </header>
+
+        <section class="card no-print">
+          <div class="toolbar report-toolbar">
+            <div class="inline-field">
+              <label for="reportFrom">From</label>
+              <input type="date" id="reportFrom" />
+            </div>
+            <div class="inline-field">
+              <label for="reportTo">To</label>
+              <input type="date" id="reportTo" />
+            </div>
+            <button type="button" id="applyReportBtn" class="btn-primary">Apply</button>
+            <button type="button" id="printReportBtn" class="btn-secondary">Print</button>
+            <button type="button" id="exportCsvBtn" class="btn-secondary">Export CSV</button>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <div class="card stat-card">
+            <span class="stat-label">Total Sales Revenue</span>
+            <strong class="stat-value" id="repRevenue">&#2547; 0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Flats Sold / Booked</span>
+            <strong class="stat-value" id="repFlatsSold">0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Available Inventory Value</span>
+            <strong class="stat-value" id="repAvailableValue">&#2547; 0</strong>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Lead Conversion Rate</span>
+            <strong class="stat-value" id="repConversion">0%</strong>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Monthly Sales Trend</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Bookings</th>
+                  <th>Sales Revenue</th>
+                  <th>Booking Money</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody id="monthlySalesBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Project-wise Sales Performance</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>Total Flats</th>
+                  <th>Available</th>
+                  <th>Booked / Sold</th>
+                  <th>Sales Revenue</th>
+                  <th>Occupancy %</th>
+                </tr>
+              </thead>
+              <tbody id="projectAnalyticsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Sales Agent Performance</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Agent</th>
+                  <th>Assigned Leads</th>
+                  <th>Confirmed Bookings</th>
+                  <th>Total Sales Value</th>
+                </tr>
+              </thead>
+              <tbody id="agentAnalyticsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

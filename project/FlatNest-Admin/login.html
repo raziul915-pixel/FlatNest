@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Admin Login</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="login" class="login-body">
+    <div class="login-wrapper">
+      <div class="card login-card">
+        <div class="login-brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="login-logo" />
+          <h2>FlatNest Admin</h2>
+          <p>Administrator Portal</p>
+        </div>
+        <form id="loginForm" class="login-form" novalidate>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="admin@flatnest.com"
+              autocomplete="username"
+            />
+            <span class="field-error" id="emailError"></span>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-row">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+              />
+              <button type="button" id="togglePasswordBtn" class="toggle-pass-btn">
+                Show
+              </button>
+            </div>
+            <span class="field-error" id="passwordError"></span>
+          </div>
+          <div class="form-error" id="loginError"></div>
+          <button type="submit" class="btn-primary btn-full">Sign In</button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Website Content</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="content">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="adminName">Khandakar Raziul</p>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="projects.html">Projects</a>
+          <a href="flats.html">Flats</a>
+          <a href="users.html">Users &amp; Staff</a>
+          <a href="leads.html">Leads</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="reports.html">Sales Analytics</a>
+          <a href="content.html" class="active">Website Content</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Website Content</h1>
+            <p class="subtitle">Manage home page hero banner, featured flats, and public announcements.</p>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Home Page Banner Settings</h3>
+          </div>
+          <form id="bannerForm" class="form-grid" novalidate>
+            <div class="field">
+              <label for="bannerHeadlineInput">Hero Headline</label>
+              <input type="text" id="bannerHeadlineInput" />
+              <span class="field-error" id="bannerHeadlineError"></span>
+            </div>
+            <div class="field">
+              <label for="bannerSubtextInput">Hero Subtitle</label>
+              <input type="text" id="bannerSubtextInput" />
+              <span class="field-error" id="bannerSubtextError"></span>
+            </div>
+            <div class="field">
+              <label for="bannerCtaInput">Primary Button Text</label>
+              <input type="text" id="bannerCtaInput" />
+              <span class="field-error" id="bannerCtaError"></span>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Save Banner Settings</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Featured Flats on Home Page</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Flat ID</th>
+                  <th>Project</th>
+                  <th>Flat No.</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Featured</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="featuredFlatsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Announcements</h3>
+          </div>
+          <form id="announcementForm" class="form-grid" novalidate>
+            <div class="field">
+              <label for="annTitleInput">Announcement Title</label>
+              <input type="text" id="annTitleInput" placeholder="e.g. Festive Booking Discount" />
+              <span class="field-error" id="annTitleError"></span>
+            </div>
+            <div class="field">
+              <label for="annDateInput">Publish Date</label>
+              <input type="date" id="annDateInput" />
+              <span class="field-error" id="annDateError"></span>
+            </div>
+            <div class="field">
+              <label for="annMessageInput">Message</label>
+              <input type="text" id="annMessageInput" placeholder="Short announcement text for visitors" />
+              <span class="field-error" id="annMessageError"></span>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Publish Announcement</button>
+            </div>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Message</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="announcementTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

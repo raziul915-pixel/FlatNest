@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Users &amp; Staff</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="users">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="adminName">Khandakar Raziul</p>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="projects.html">Projects</a>
+          <a href="flats.html">Flats</a>
+          <a href="users.html" class="active">Users &amp; Staff</a>
+          <a href="leads.html">Leads</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="reports.html">Sales Analytics</a>
+          <a href="content.html">Website Content</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Users &amp; Staff</h1>
+            <p class="subtitle">Create staff accounts, assign user roles, and activate or deactivate access.</p>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Create Staff / User Account</h3>
+          </div>
+          <form id="userForm" class="form-grid" novalidate>
+            <div class="field">
+              <label for="userNameInput">Full Name</label>
+              <input type="text" id="userNameInput" placeholder="e.g. Samiya Sultana" />
+              <span class="field-error" id="userNameError"></span>
+            </div>
+            <div class="field">
+              <label for="userEmailInput">Email Address</label>
+              <input type="email" id="userEmailInput" placeholder="e.g. samiya@flatnest.com" />
+              <span class="field-error" id="userEmailError"></span>
+            </div>
+            <div class="field">
+              <label for="userPhoneInput">Phone Number</label>
+              <input type="text" id="userPhoneInput" placeholder="e.g. 01711000000" />
+              <span class="field-error" id="userPhoneError"></span>
+            </div>
+            <div class="field">
+              <label for="userRoleSelect">Role</label>
+              <select id="userRoleSelect">
+                <option value="Sales Agent">Sales Agent</option>
+                <option value="Accounts Officer">Accounts Officer</option>
+                <option value="Admin">Admin</option>
+                <option value="Customer">Customer</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="userPassInput">Temporary Password</label>
+              <input type="text" id="userPassInput" placeholder="Minimum 8 characters" />
+              <span class="field-error" id="userPassError"></span>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Create Account</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Registered Users</h3>
+          </div>
+          <div class="toolbar">
+            <select id="userRoleFilter">
+              <option value="All">All Roles</option>
+              <option value="Admin">Admin</option>
+              <option value="Sales Agent">Sales Agent</option>
+              <option value="Accounts Officer">Accounts Officer</option>
+              <option value="Customer">Customer</option>
+            </select>
+            <input type="text" id="userSearch" placeholder="Search by name, email, or phone" />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>User ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="userTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
