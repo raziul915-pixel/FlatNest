@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Search Flats | FlatFinder
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <div class="brand">
+    FlatFinder
+   </div>
+   <nav>
+    <a href="dashboard.html">
+     Dashboard
+    </a>
+    <a href="search-flats.html">
+     Find Flats
+    </a>
+    <a href="wishlist.html">
+     Wishlist
+    </a>
+    <a href="inquiries.html">
+     Inquiries
+    </a>
+    <a href="profile.html">
+     Profile
+    </a>
+    <a href="#" onclick="logout()">
+     Logout
+    </a>
+   </nav>
+  </header>
+  <main>
+   <section class="panel">
+    <h2>
+     Search and Filter Flats
+    </h2>
+    <div class="grid">
+     <div class="field">
+      <label>
+       Project
+      </label>
+      <select id="project" onchange="filterFlats()">
+      </select>
+     </div>
+     <div class="field">
+      <label>
+       Location
+      </label>
+      <select id="location" onchange="filterFlats()">
+      </select>
+     </div>
+     <div class="field">
+      <label>
+       Minimum Size (sq ft)
+      </label>
+      <input id="size" oninput="filterFlats()" placeholder="e.g. 1000" type="number"/>
+     </div>
+     <div class="field">
+      <label>
+       Minimum Bedrooms
+      </label>
+      <select id="bedrooms" onchange="filterFlats()">
+       <option value="">
+        Any
+       </option>
+       <option>
+        1
+       </option>
+       <option>
+        2
+       </option>
+       <option>
+        3
+       </option>
+       <option>
+        4
+       </option>
+      </select>
+     </div>
+     <div class="field">
+      <label>
+       Floor
+      </label>
+      <input id="floor" oninput="filterFlats()" placeholder="Exact floor" type="number"/>
+     </div>
+     <div class="field">
+      <label>
+       Minimum Price (BDT)
+      </label>
+      <input id="minPrice" oninput="filterFlats()" type="number"/>
+     </div>
+     <div class="field">
+      <label>
+       Maximum Price (BDT)
+      </label>
+      <input id="maxPrice" oninput="filterFlats()" type="number"/>
+     </div>
+    </div>
+    <button class="secondary" onclick="document.querySelectorAll('input').forEach(x=&gt;x.value='');document.querySelectorAll('select').forEach(x=&gt;x.selectedIndex=0);filterFlats()">
+     Clear Filters
+    </button>
+   </section>
+   <h2>
+    Available Listings
+   </h2>
+   <div class="grid" id="results">
+   </div>
+  </main>
+  <footer>
+   FlatFinder Customer Module · Academic frontend demonstration
+  </footer>
+  <script src="js/app.js">
+  </script>
+  <script>
+   search();
+  </script>
+ </body>
+</html>

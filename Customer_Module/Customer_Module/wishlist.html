@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Wishlist | FlatFinder
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <div class="brand">
+    FlatFinder
+   </div>
+   <nav>
+    <a href="dashboard.html">
+     Dashboard
+    </a>
+    <a href="search-flats.html">
+     Find Flats
+    </a>
+    <a href="wishlist.html">
+     Wishlist
+    </a>
+    <a href="inquiries.html">
+     Inquiries
+    </a>
+    <a href="profile.html">
+     Profile
+    </a>
+    <a href="#" onclick="logout()">
+     Logout
+    </a>
+   </nav>
+  </header>
+  <main>
+   <h2>
+    My Shortlisted Flats
+   </h2>
+   <div class="grid" id="results">
+   </div>
+  </main>
+  <footer>
+   FlatFinder Customer Module · Academic frontend demonstration
+  </footer>
+  <script src="js/app.js">
+  </script>
+  <script>
+   wishlist();
+  </script>
+ </body>
+</html>

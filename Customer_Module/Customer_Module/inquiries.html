@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Inquiries | FlatFinder
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <div class="brand">
+    FlatFinder
+   </div>
+   <nav>
+    <a href="dashboard.html">
+     Dashboard
+    </a>
+    <a href="search-flats.html">
+     Find Flats
+    </a>
+    <a href="wishlist.html">
+     Wishlist
+    </a>
+    <a href="inquiries.html">
+     Inquiries
+    </a>
+    <a href="profile.html">
+     Profile
+    </a>
+    <a href="#" onclick="logout()">
+     Logout
+    </a>
+   </nav>
+  </header>
+  <main>
+   <section class="panel">
+    <h2>
+     Send an Inquiry
+    </h2>
+    <form onsubmit="inquiry(event)">
+     <div class="field">
+      <label>
+       Flat ID (open a flat details page and click Send Inquiry)
+      </label>
+      <input id="flatId" required="" type="number"/>
+     </div>
+     <div class="field">
+      <label>
+       Your Message
+      </label>
+      <textarea id="message" placeholder="Write your question about this flat..." required=""></textarea>
+     </div>
+     <p id="msg">
+     </p>
+     <button>
+      Submit Inquiry
+     </button>
+    </form>
+   </section>
+   <h2>
+    My Inquiry History &amp; Agent Replies
+   </h2>
+   <div id="inquiryList">
+   </div>
+   <div class="notice">
+    Replies appear here when the Sales Agent module is connected to a shared backend. In this standalone demo, inquiry records are saved in this browser only.
+   </div>
+  </main>
+  <footer>
+   FlatFinder Customer Module · Academic frontend demonstration
+  </footer>
+  <script src="js/app.js">
+  </script>
+  <script>
+   inquiries();
+  </script>
+ </body>
+</html>
