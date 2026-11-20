@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlatNest - Customer Inquiries</title>
+    <link rel="icon" type="image/jpeg" href="FlatNest.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="inquiries">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="FlatNest.jpg" alt="FlatNest Logo" class="brand-logo" />
+          <div class="brand-info">
+            <h2>FlatNest</h2>
+            <p id="agentName">Samiya Sultana</p>
+            <span>Sales Agent</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="inquiries.html" class="active">Inquiries</a>
+          <a href="visits.html">Site Visits</a>
+          <a href="bookings.html">Booking Requests</a>
+          <a href="customers.html">My Customers</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <h1>Customer Inquiries</h1>
+            <p class="subtitle">Reply to inquiries assigned to you and mark follow-up status.</p>
+          </div>
+          
+        </header>
+        <section class="card">
+          <div class="toolbar">
+            <input type="text" id="inquirySearch" placeholder="Search customer or flat" />
+            <select id="inquiryStatusFilter">
+              <option value="All">All Status</option><option value="New">New</option><option value="Replied">Replied</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Customer</th><th>Flat</th><th>Message</th><th>Date</th><th>Status</th><th>Follow-up</th><th>Action</th></tr></thead>
+              <tbody id="inquiryTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+    <div id="replyModal" class="modal-backdrop">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h3 id="replyModalTitle">Reply to Inquiry</h3>
+          <button type="button" class="modal-close" id="closeReplyBtn">&times;</button>
+        </div>
+        <p class="modal-subtitle" id="replySubtitle"></p>
+        <div class="field"><label>Customer Message</label><p id="replyCustomerMsg" class="modal-subtitle"></p></div>
+        <div class="field"><label>Previous Replies</label><div id="replyHistory" class="notes-list"></div></div>
+        <div class="field">
+          <label for="replyMessage">Your Reply</label>
+          <textarea id="replyMessage" rows="4" placeholder="Write your reply to the customer"></textarea>
+          <span class="field-error" id="replyError"></span>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelReplyBtn">Cancel</button>
+          <button type="button" class="btn-primary" id="sendReplyBtn">Send Reply</button>
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
